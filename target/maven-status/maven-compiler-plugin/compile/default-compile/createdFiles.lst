@@ -1,0 +1,10 @@
+com/assignment/trade/TradeService.class
+com/assignment/trade/TradeVersionMapping.class
+com/assignment/trade/TradeVersionMappingRepo.class
+com/assignment/trade/TradeApplication.class
+com/assignment/trade/TradeVersionMappingService.class
+com/assignment/trade/TradeRepository.class
+com/assignment/trade/TradeController.class
+com/assignment/trade/Trade.class
+com/assignment/trade/TradeServiceImpl.class
+com/assignment/trade/TradeVersionMappingServiceImpl.class

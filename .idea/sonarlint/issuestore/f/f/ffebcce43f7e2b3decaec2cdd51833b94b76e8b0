@@ -1,0 +1,13 @@
+
+H
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8…ùû¸.
+Y
+java:S3655\"7Call "Optional#isPresent()" before accessing the value.(ãîæ÷ÿÿÿÿÿ8âëáá¸.
+T
+java:S3655Q"7Call "Optional#isPresent()" before accessing the value.(²¤ˆ8£·Ùá¸.
+g
+java:S3655E"JCall "tradeVersionMappingOptional.isPresent()" before accessing the value.(Œ²Šâ8˜Âîß¸.
+_
+java:S1128"=Remove this unused import 'java.time.chrono.ChronoLocalDate'.(‘Ë¡°ÿÿÿÿÿ8ıï÷û¸.
+P
+java:S1128".Remove this unused import 'java.time.Instant'.(Â‚éñÿÿÿÿÿ8…ùû¸.

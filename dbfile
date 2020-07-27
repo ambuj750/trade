@@ -1,0 +1,17 @@
+
+CREATE KEYSPACE trade_keyspace WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+
+CREATE TABLE trade_keyspace.trade (
+    trade_id text PRIMARY KEY,
+    book_id text,
+    counter_party_id text,
+    created_date timestamp,
+    expired text,
+    maturity_date timestamp,
+    version int
+);
+
+CREATE TABLE trade_keyspace.trade_version_mapping (
+    trade_id text PRIMARY KEY,
+    latest_version int
+);
