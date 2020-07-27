@@ -1,3 +1,2 @@
-# cassandra-quickstart
+# trade-assignment
 
-Cassandra DB configuration Project
