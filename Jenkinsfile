@@ -1,10 +1,17 @@
-pipeline {
-    agent { docker { image 'maven:3.3.3' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'mvn --version'
-            }
-        }
-    }
+node {
+
+   def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
+    
+   stage('SCM Checkout'){
+    // Clone repo
+	git branch: 'master', 
+	credentialsId: 'github', 
+	url: 'https://github.com/javahometech/trade'
+   
+   }
+    
+    stage('Mvn Package'){
+	   // Build using maven
+	   sh "${mvn} clean package deploy"
+   }
 }
