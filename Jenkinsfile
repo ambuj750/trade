@@ -6,7 +6,7 @@ node {
     // Clone repo
 	git branch: 'master', 
 	credentialsId: 'github', 
-	url: 'https://github.com/javahometech/trade'
+	url: 'https://github.com/ambuj750/trade'
    
    }
     
