@@ -1,17 +1,27 @@
 node {
+    // Get Artifactory server instance, defined in the Artifactory Plugin administration page.
+    def server = Artifactory.server "SERVER_ID"
+    // Create an Artifactory Maven instance.
+    def rtMaven = Artifactory.newMavenBuild()
+    def buildInfo
 
-   def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
-    
-   stage('SCM Checkout'){
-    // Clone repo
-	git branch: 'master', 
-	credentialsId: 'github', 
-	url: 'https://github.com/ambuj750/trade'
-   
-   }
-    
-    stage('Mvn Package'){
-	   // Build using maven
-	   sh "${mvn} clean package deploy"
-   }
+    stage('Clone sources') {
+        git url: 'https://github.com/ambuj750/trade.git'
+    }
+
+    stage('Artifactory configuration') {
+        // Tool name from Jenkins configuration
+        rtMaven.tool = "Maven-3.3.9"
+        // Set Artifactory repositories for dependencies resolution and artifacts deployment.
+        rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
+        rtMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
+    }
+
+    stage('Maven build') {
+        buildInfo = rtMaven.run pom: 'maven-example/pom.xml', goals: 'clean install'
+    }
+
+    stage('Publish build info') {
+        server.publishBuildInfo buildInfo
+    }
 }
